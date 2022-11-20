@@ -1,2 +1,1 @@
-Yago = 2
-Calado = 1 
+YAGO = 1 

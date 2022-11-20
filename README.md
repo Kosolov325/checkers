@@ -8,7 +8,7 @@
   - [@Yago Prazim](https://github.com/yagoprazim)
   - [@Anna Luiza](https://github.com/annaluizando)
   - [@Anny Gabrielly](https://github.com/annyxvs)
-  - [@Anderson Maqueive](https://PRODUCT_OWNER.com/) 
+  - [@Anderson Maqueive](https://github.com/marqueieve) 
 
 ## Features
 

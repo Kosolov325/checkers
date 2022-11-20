@@ -851,6 +851,7 @@ int winner(checkersGrid Board[][SIZE], char turn)
     int o_count = 0;
     bool x_move = false;
     bool o_move = false;
+
     // checks for the number of peices for both colors and if there are any valid moves for both parties
     for (int i = 0; i < SIZE; i++)
     {
@@ -983,6 +984,11 @@ int validatedNames(){
     return 1;
 }
 
+void toUpper(char *name){
+    for(int i=0;i<strlen(name);i++){
+        name[i] = toupper(name[i]);
+   }
+}
 void selectPlayers() {
      int valid = 0;
      while(valid == 0){
@@ -994,7 +1000,11 @@ void selectPlayers() {
         p1.points = 0;
         p2.points = 0;
         valid = validatedNames();
+        printf("\nPress any key to continue!\n");
+        getch();
      }
+     toUpper(p1.name);
+     toUpper(p2.name);
 }
 
 int addRanking(char name[50], int points){
