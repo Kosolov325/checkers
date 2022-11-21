@@ -30,9 +30,11 @@
   git clone https://github.com/Kosolov325/checkers.git
   cd checkers
   gcc -o checers.exe ./bin/main.c ./bin/checkers.c
-  
 ```
-    
+
+## Credits 
+  - Original project: https://github.com/esh04/Checkers
+  
 ## Etiquetas
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
