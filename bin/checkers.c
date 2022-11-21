@@ -720,7 +720,7 @@ int introduction()
         printf("\n2 - Ranking");
         printf("\n3 - Credits");
         printf("\n4 - Exit");
-        printf("\nInput one of the options? (1-5)\n");
+        printf("\nInput one of the options? (1-4)\n");
         scanf("%d", &opt);
         return opt;
 }
@@ -1007,7 +1007,7 @@ void selectPlayers() {
      toUpper(p2.name);
 }
 
-int addRanking(char name[50], int points){
+int addRanking(char *name, int points){
    char line[1024];
    char s1[10];
    int count = 0;
@@ -1040,19 +1040,22 @@ int addRanking(char name[50], int points){
     if (exist == 1){
         int i = atoi(s1);
         char s2[10];
-        fTemp = fopen("/config/replace.tmp", "w");
+        char s3[100] = "";
+
+        fTemp = fopen("config/replace.tmp", "w");
         points += i;
         sprintf(s2, "%d", points);
-        strcat(name, " = ");
-        strcat(name, s2);
-        strcat(name, "\n");
-
+        strcat(s3, name);
+        strcat(s3, " = ");
+        strcat(s3, s2);
+        strcat(s3, "\n");
+        
         rewind(file);
          while ((fgets(line, sizeof(line), file)) != NULL)
         {
             countTmp++;
             if (countTmp == count){
-                fputs(name, fTemp);
+                fputs(s3, fTemp);
             }
             else{
                 fputs(line, fTemp);
@@ -1063,7 +1066,7 @@ int addRanking(char name[50], int points){
         fclose(fTemp);
 
         remove(ranking);
-        rename("/config/replace.tmp", ranking);
+        rename("config/replace.tmp", ranking);
     }
     else{
         fprintf(file, "%s = %d \n", name, points);
