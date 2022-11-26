@@ -3,7 +3,7 @@
 #include "stack.h"
 //************This file contains definition of all functions************
 
-int playerTurn = 1;
+int playerTurn;
 
 void initBoard(checkersGrid Board[][SIZE])
 {
@@ -640,6 +640,7 @@ void sound()
     // To add sound when a valid move(either diagonal or capture) is made
     printf("\a");
 }
+
 // derived from if_capture
 int if_capture_possible(checkersGrid Board[][SIZE], char turn)
 {
@@ -802,15 +803,11 @@ int game(void)
     checkersGrid CheckerBoard[SIZE][SIZE];
     initBoard(CheckerBoard);
     StackContents stack[10000];
-    int count_queue = 0;
     char turn = 'X';
+    playerTurn = 1;
     int capture, valid;
     coordinates start, final;
     char temp1, temp2;
-    int moves;
-    int reply;
-    int undo_ans;
-    int k;
     int temp;
     char dummy[100];
     int win = 0;
@@ -822,8 +819,7 @@ int game(void)
 
     while (1)
     {
-        
-        system("cls");
+        system("cls");    
         printBoard(CheckerBoard);
         printf("\n               ");
         printf(" ************ %s's Turn | Pieces '%c' ************\n", (playerTurn == 1) ? p1.name : p2.name, turn);
