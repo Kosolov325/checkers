@@ -7,7 +7,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include "constants.h"
-#include "stack.h"
 #include <string.h>
 
 // ************Functions declarations************
@@ -25,12 +24,7 @@ int is_capture(checkersGrid Board[][SIZE], char turn, coordinates c);
 int if_capture(checkersGrid Board[][SIZE], char turn);
 coordinates *double_captures(checkersGrid Board[][SIZE], char turn, coordinates c);
 int introduction();
-int undo(checkersGrid Board[][SIZE], StackContents *stack, int moves);
-void allPossibleMoves(checkersGrid Board[][SIZE], char turn, int k);
 char switchTurn(char turn);
-void PossibleCapturesRepeatingSteps(checkersGrid tempBoard[][SIZE], char turn, coordinates initial, coordinates final, int k);
-void temporaryBoard(checkersGrid Board[][SIZE], checkersGrid tempBoard[][SIZE]);
-void PossibleMovesRepeatingSteps(checkersGrid Board[][SIZE], char turn, coordinates initial, coordinates final, int k);
 void sound(); // Adds sound when a valid move(either diagonal or capture) is made
 
 #endif

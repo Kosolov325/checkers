@@ -1,6 +1,5 @@
 #include "checkers.h"
 
-#include "stack.h"
 //************This file contains definition of all functions************
 
 int playerTurn;
@@ -551,20 +550,6 @@ int if_capture(checkersGrid Board[][SIZE], char turn)
     return flag;
 }
 
-//**************Stack Implementation in C- using arrays******************
-int top = -1; // Top of the stack
-
-void push(StackContents s[10000], StackContents c) //Pushes into a stack of StackContents
-{
-    top++;
-    s[top] = c;
-}
-
-void pop(StackContents s[10000]) // Pops/removes the top value from the stack
-{
-    top--;
-}
-
 int winner(checkersGrid Board[][SIZE], char turn)
 {
     int x_count = 0;
@@ -705,11 +690,6 @@ int validatedNames(){
     return 1;
 }
 
-void toUpper(char *name){
-    for(int i=0;i<strlen(name);i++){
-        name[i] = toupper(name[i]);
-   }
-}
 void selectPlayers() {
      int valid = 0;
      while(valid == 0){
@@ -724,8 +704,8 @@ void selectPlayers() {
         printf("\nPress any key to continue!\n");
         getch();
      }
-     toUpper(p1.name);
-     toUpper(p2.name);
+     toupper(p1.name);
+     toupper(p2.name);
 }
 
 int addRanking(char *name, int points){
@@ -802,7 +782,6 @@ int game(void)
     // variables
     checkersGrid CheckerBoard[SIZE][SIZE];
     initBoard(CheckerBoard);
-    StackContents stack[10000];
     char turn = 'X';
     playerTurn = 1;
     int capture, valid;
@@ -940,17 +919,6 @@ int game(void)
                 else
                 {
                     sound();
-                    StackContents StackValues;
-                    StackValues.start = start;
-                    StackValues.final = final;
-                    StackValues.turn = turn;
-                    StackValues.cap = capture;
-                    if (CheckerBoard[final.x - 1][final.y].checkers.type == KING)
-                        StackValues.type = 1;
-                    else
-                        StackValues.type = 0;
-                    push(stack, StackValues);
-                    // check if turn should be switched, it must not be if double or more captures are available consecutively
                     if (ifdouble(CheckerBoard, final, turn) && capture > 0)
                         ;
                     else

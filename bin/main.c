@@ -1,5 +1,4 @@
 #include "checkers.h"
-#include "stack.h"
 
 
 // ************File used to call & run the functions************
