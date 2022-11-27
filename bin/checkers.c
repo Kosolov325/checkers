@@ -808,7 +808,6 @@ int game(void)
     int capture, valid;
     coordinates start, final;
     char temp1, temp2;
-    int temp;
     char dummy[100];
     int win = 0;
     int capture_possible;
