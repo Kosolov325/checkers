@@ -690,6 +690,12 @@ int validatedNames(){
     return 1;
 }
 
+void toUpper(char *name){
+    for(int i=0;i<strlen(name);i++){
+        name[i] = toupper(name[i]);
+   }
+}
+
 void selectPlayers() {
      int valid = 0;
      while(valid == 0){
@@ -704,8 +710,8 @@ void selectPlayers() {
         printf("\nPress any key to continue!\n");
         getch();
      }
-     toupper(p1.name);
-     toupper(p2.name);
+    toUpper(p1.name);
+    toUpper(p2.name);
 }
 
 int addRanking(char *name, int points){
